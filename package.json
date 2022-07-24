@@ -1,0 +1,13 @@
+{
+  "name": "macrobot",
+  "version": "1.0.0",
+  "description": "Discord bot allowing users to create and use macros.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "discord.js": "^14.0.3"
+  }
+}
