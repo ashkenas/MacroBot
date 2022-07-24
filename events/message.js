@@ -13,10 +13,10 @@ module.exports = {
         let successes = 0;
         const replacements = {};
         for (let [fm, macroName] of matches) {
-            macroName = macroName.trim();
+            macroName = macroName.trim().toLowerCase();
             if (!replacements[macroName]) {
                 try {
-                    const result = await macros.findOne({ user: message.author.id, name: macroName.trim() });
+                    const result = await macros.findOne({ user: message.author.id, name: macroName });
                     if (result) {
                         successes++;
                         replacements[macroName] = result.macro;
@@ -31,7 +31,7 @@ module.exports = {
             return;
 
         let newMessage = message.content.replaceAll(/{(.*?)}/g, (match, macroName) => {
-            return replacements[macroName.trim()] ?? match;
+            return replacements[macroName.trim().toLowerCase()] ?? match;
         });
 
         const webhooks = await message.channel.fetchWebhooks();

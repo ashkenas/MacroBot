@@ -3,7 +3,7 @@ module.exports = {
     async action(interaction, client, macros) {
         const macroName = interaction.options.getString('name');
         const result = await macros.updateOne(
-            { user: interaction.user.id, name: macroName },
+            { user: interaction.user.id, name: macroName.toLowerCase() },
             { $set: { macro: interaction.options.getString('macro') } },
             { upsert: true }
         );
