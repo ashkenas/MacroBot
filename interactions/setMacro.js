@@ -9,7 +9,7 @@ module.exports = {
         );
 
         if (!result.acknowledged)
-            throw error;
+            throw 'Query not acknowledged by server.';
 
         interaction.editReply(`Macro '${macroName}' set successfully!`);
     }
