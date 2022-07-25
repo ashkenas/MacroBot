@@ -3,7 +3,7 @@ module.exports = {
     async action(interaction, client, macros) {
         const macroName = interaction.options.getString('name');
         const result = await macros.deleteOne(
-            { user: interaction.user.id, name: macroName.toLowerCase() }
+            { _id: `${interaction.user.id}${macroName.trim().toLowerCase()}` }
         );
 
         if (!result.acknowledged)

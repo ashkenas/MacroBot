@@ -16,7 +16,7 @@ module.exports = {
             macroName = macroName.trim().toLowerCase();
             if (!replacements[macroName]) {
                 try {
-                    const result = await macros.findOne({ user: message.author.id, name: macroName });
+                    const result = await macros.findOne({ _id: `${message.author.id}${macroName}` });
                     if (result) {
                         successes++;
                         replacements[macroName] = result.macro;
