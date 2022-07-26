@@ -11,6 +11,6 @@ module.exports = {
         if (!result.acknowledged)
             throw 'Query not acknowledged by server.';
 
-        interaction.editReply(`Macro '${macroName}' set successfully!`);
+        await interaction.editReply(`Macro '${macroName}' set successfully!`);
     }
 };

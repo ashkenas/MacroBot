@@ -9,6 +9,6 @@ module.exports = {
         if (!result.acknowledged)
             throw 'Query not acknowledged by server.';
 
-        interaction.editReply(`Macro '${macroName}' deleted successfully!`);
+        await interaction.editReply(`Macro '${macroName}' deleted successfully!`);
     }
 };
